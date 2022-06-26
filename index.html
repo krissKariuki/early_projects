@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <meta name='viewport'content='width=device-width,initia-scale=1.0'/>
+        <meta charset='UTF-8'/>
+        
+
+        <style>
+            
+        
+        </style>
+        
+    </head>
+    
+    <body>
+
+       <script>
+       
+       let btn=document.createElement('button');
+       let p=document.createElement('p');
+       p.style.fontSize='2.5em';
+       p.style.fontFamily='courier';
+       document.body.append(p);
+       document.body.append(btn);
+       
+       btn.style.backgroundColor='silver';
+       btn.style.fontSize='2em';
+       btn.style.padding='0.5em';
+       btn.style.position='absolute';
+       btn.style.left='45';
+       btn.style.top='600';
+       btn.innerText='password generator';
+       
+       
+       btn.onclick=ranPsdGen;
+       
+       let counter=0;
+       function ranPsdGen()
+       {
+           counter++;
+
+       
+          let lowercase=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+          let uppercase=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+         let  numberset=['0','1','2','3','4','5','6','7','8','9'];
+         let symbolset=['#','@','%','$','&','/','?','_','|','+','*'];
+       
+       let psd=numberset.concat(lowercase,uppercase,symbolset);
+       
+       let num01=Math.round(Math.random()*psd.length);
+       let num02=Math.round(Math.random()*psd.length);
+       let num03=Math.round(Math.random()*psd.length);
+       let num04=Math.round(Math.random()*psd.length);
+       let num05=Math.round(Math.random()*psd.length);
+       let num06=Math.round(Math.random()*psd.length);
+       let num07=Math.round(Math.random()*psd.length);
+       let num08=Math.round(Math.random()*psd.length);
+       let num09=Math.round(Math.random()*psd.length);
+       let num10=Math.round(Math.random()*psd.length); 
+       let num11=Math.round(Math.random()*psd.length);
+       let num12=Math.round(Math.random()*psd.length); 
+       let num13=Math.round(Math.random()*psd.length);
+       let num14=Math.round(Math.random()*psd.length);
+       let num15=Math.round(Math.random()*psd.length);
+       let num16=Math.round(Math.random()*psd.length);
+       
+       
+       
+let password=`${psd[num01]}${psd[num02]}${psd[num03]}${psd[num04]}${psd[num05]}${psd[num06]}${psd[num07]}${psd[num08]}${psd[num09]}${psd[num10]}${psd[num11]}${psd[num12]}${psd[num13]}${psd[num14]}${psd[num15]}${psd[num16]}`;
+
+
+if(password.includes(undefined)==true)
+{
+ undefined.remove();
+}
+p.innerHTML=`count ${counter} is random password:<br><br> <center><u><mark>${password}</mark></u></center>`;
+console.log(password)
+       }
+//setInterval(ranPsdGen,1);
+
+         </script>
+        
+    </body>
+    
+</html>

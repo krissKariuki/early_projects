@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="EN">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Scalable Vector Graphics (SVG)</title>
+        <meta name="viewport"content="width=device-width,initial-scale=1.0"/>
+        <style type="text/css">
+            body{background-image:linear-gradient(rgba(0,0,0,0.6),rgba(255,255,255,1));padding:0 auto;font-family:courier;color:black;}
+            h1,h2,h3,h4{text-decoration:underline;text-align:center;text-transform:uppercase;margin:0 auto;}
+            p{text-decoration:underline;font-size:20px;text-align:justify;display:block;letter-spacing:inherit;word-spacing:inherit;}
+            button{color:white;background-color:rgba(0,0,0,0.75);padding:0 auto;border:dotted 0.5px;border-radius:5px;font-weight:1000;font-family:courier;font-size:1em;width:auto;height:auto;}
+            button.btn{float:right;display:inline;clear:both;margin:5px;font-size:1.75em;font-weight:1000;height:55px;}
+            button#prev{font-size:1.75em;font-weight:400;padding:0 auto;margin:6px;float:right;}
+            button#next{font-size:1.75em;font-weight:400;padding:0 auto;margin:6px;}
+            button#audex{margin:6px;padding:9px;float:left;text-transform:uppercase;}
+            button#audev{margin:6px;padding:9px;float:right;text-transform:uppercase;}
+            
+
+               ::selection{color:white;background-color:rgba(0,0,0,0.5);}
+               input{background-color:rgba(0,0,0,0.25):border:none;outline:none;}
+               span{color:white;background-color:rgba(0,0,0,0.25);font-family:courier;font-size:1em;border:none;padding:3px 5px;display:inline-block;border-radius:25px/100%;}
+               div{width:100%;height:auto;background-color:rgba(0,0,0,1);border-radius:0%;border:1px solid black;color:white;text-align:left;}
+               div>h1,h2,h3,h4{background-color:rgba(0,0,0,1);display:block;font-family:serif;border-radius:inherit;}
+               div>p{text-align:center;font-family:courier;font-size:1em;color:white;text-decoration:underline;}
+               #rand{font-size:2.5em;font-family:serif;background-color:rgba(0,0,0,0.5);display:inline-block;height:auto;color:white;border-radius:50%;padding:25px;display:inline;float:left;clear:both;}
+               mark{color:black;background-color:black;}
+               img{width:75%;height:auto;border:1px solid white;}
+               img#slider{padding:0 auto;margin-left:40px;}
+               audio#aud{margin:0 auto;width:100%;height:50px;background-color:#ffffff;border-radius:5px;}
+
+        </style>
+        </head>
+        
+    <body><div>
+        <div style="background-color:black;opacity:1;position:sticky;top:0px;">
+            <h1><mark>TIME DISPLAY</mark></h1>
+            <h2><mark>in</mark></h2>
+            <h3><mark>JAVASCRIPT</mark></h3>
+            </div>
+            <p><mark>In order to display time,javascript's "new Date( )" object is required.</mark></p>
+            <p><mark>The first step is to define a variable with the above mentioned object.Once this variable is defined,it can be referenced multiple times for different date values,i.e.the year,month,week,date,day,hour,minute and even second!</mark></p>
+            <p><mark>Second step,you need to create other variables with which to reference the 'new Date( )' object to the corresponding function.</mark></p>
+            <p><mark>The third step is to create a code that will display the output.This can be done in several ways but for simplicity and briefety,I'll go through the simplest method- '<i>document.body.innerHTML</i>' In this method,the program overwrites the current function,which in this case is the required time,on the body of the document without requiring prior elements to anchor from.This is not all!</mark></p>
+            <p><mark>The last step that remains is to specify the refresh rate with which our time display function should rewrite the time after every specified time period.This is done using the 'setInterval( )' method.This function performs a task after every specified interval.</mark></p>
+       </div> 
+        <div id="compo" style="position:sticky;width:100%;background-color:white;color:white;height:auto;top:0px;"><h3 id="langpo">
+            Computer languages-man's superpower! 
+        </h3></div>
+        <br>
+        <p>The time now is <span id="demo"><u>abc</u></span>hours but this time is static!This means that in order for the time to get updated to the current time,a function has to be invoked or called manually.In this case,the pressing of <button type="button"onclick="myfunc()">this button</button>.</p>
+
+        <p>The time now is <u><span id="mode"></span></u>hours and this time is dynamic!This means that the time automatically updates to the current time every specified period of time and in this case,once every second.</p>
+
+    <p><a href="motive.html">click here</a> to visit MOTIVE,a recommended website for any avid reader!</p>
+    <button type="button"onclick="random()"class="btn">Random number</button>
+    <p id="rand">xy</p>
+        
+        <p>The '<i>Random number</i>' button changes the value of the circular patch display without a specified pattern(randomly).The language that makes that dynamic effect possible is javascript while the language used to produce style such as the shape,color and size of the patch and button is CSS'<i>Cascading Style Sheets</i>' .</p>
+        <p>There are very few limitations as to what you can achieve with the power and might of manipulating these computer-based languages.Everything from your smartphone to aviation and robotics are heavily dependent on man's ability to give executable instructions to a computer</p>
+<div id="dis"></div>
+<p>Below is a collection of some images that are navigable by the 'NEXT' and 'PREVIOUS' buttons.</p>
+<div>
+<button id="next"onclick="nextf()">NEXT</button>
+<button id="prev"onclick="prevf()">PREVIOUS</button>
+<img id="slider"src="default-wp.jpg"/>
+</div>
+<br>
+
+<!--audio element and its controls and buttons navigation system-->
+<div>
+<button id="audex"onclick="audiex()">next</button>
+<button id="audev"onclick="audiev()">previous</button>
+<audio id="aud"src="otherside-rhcp.mp3"controls autoplay/>
+</div>
+        <script>
+
+        
+    //Mannual time display update button
+    
+        function myfunc(){
+            var time=new Date();
+            var hrs=time.getHours();
+            var min=time.getMinutes();
+            var sec=time.getSeconds();
+            document.getElementById("demo").innerHTML=hrs+":"+min+":"+sec;}
+            
+            //Automatic real time dynamic display
+        function func(){
+            var time=new Date();
+            var hrs=time.getHours();
+            var min=time.getMinutes();
+            var sec=time.getSeconds();
+            document.getElementById("mode").innerHTML=hrs+":"+min+":"+sec;
+        }setInterval(func,1000);
+        
+        function random(){
+        var num=Math.round(Math.random()*10);
+        document.getElementById("rand").innerHTML=num;
+        if(num<10){document.getElementById("rand").innerHTML="0"+num;}
+        }
+    
+    //creating event handler for duplicating element upon clicking
+    
+    var doc=document.getElementById("dis");
+    var par=document.createElement("p");
+    var txt1=document.createTextNode("This sentence generates a new text upon clicking!");
+    par.appendChild(txt1);
+    doc.appendChild(par);
+    doc.style.backgroundColor="blue";
+    
+     doc.addEventListener("click",funct);
+     
+     
+     function funct(){
+         var doc=document.getElementById("dis");
+         var par=document.createElement("p");
+         var txt2=document.createTextNode("The art of programming is fundamentally a superpower that humans have learned to harness!-You can give instructions to a non-living,inanimate object and it will execute those commands almost flawlessly with stunning speed and precision by the mere use of programming languages!.");
+         par.appendChild(txt2);
+         doc.appendChild(par);
+         doc.removeEventListener("click",funct);
+         doc.style.backgroundColor="black"; 
+         var fst=dis.firstChild;
+         dis.removeChild(fst);
+         
+         document.getElementById("compo").style.position="relative";
+     } 
+     
+     //image slider 
+     
+var images=["default-wp.jpg","wp-0.jpg","wp-1.jpg","Ka.jpg","K1.jpg","K6.jpg","crsbby-0.jpg","crsbby-1.jpg"];
+var num=0;
+var slid=document.getElementById("slider");
+
+//resize upon image onclick
+slid.addEventListener("click",resize);
+function nextf()
+{
+    num++;
+    if(num>=images.length){num=0;}
+    slid.src=images[num];
+}
+
+function prevf()
+{
+    num--;
+    if(num<0){num=images.length-1;}
+    slid.src=images[num];
+}
+
+//resize function of image upon clicking
+
+function resize()
+{
+var curwif=document.getElementById("slider");
+curwif.style.width="100%";
+curwif.style.margin="0 auto";
+}
+//audio "next" and "previous" function caller
+
+var songs=["otherside-rhcp.mp3","magic-coldplay.mp3","courage to change-sia.mp3","chandelier-sia.mp3","unstoppable-sia.mp3","team-lorde.mp3","yellow flicker-lorde.mp3"];
+var num=0;
+
+ function audiex()
+ {
+     var audex=document.getElementById("audex");
+     num++;
+     if(num>=songs.length){num=0;}
+     aud.src=songs[num];
+ }
+ 
+ function audiev()
+ {
+     var audev=document.getElementById("audev");
+     num--;
+     if(num<0){num=songs.length-1;}
+     aud.src=songs[num];
+     
+ }
+        </script>
+    </body>
+</html>

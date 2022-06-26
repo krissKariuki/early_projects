@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang='en-US'>
+    <head>
+        <meta charset='UTF-8'/>
+        <meta name='viewport'content='width=device-width,initial-scale=1.0'/>
+        
+        
+    </head>
+    
+    <body>
+        
+        <button>forward</button>
+        <button>reverse</button>
+        
+        <script>
+            
+            // main variable declarations
+            const body=document.body;
+            let forwardBtn=body.children[0];
+            let reverseBtn=body.children[1];
+            let canvas=document.createElement('canvas');
+            body.append(canvas);
+            
+            
+            //main elements styling
+            
+            
+            //body styling
+            body.style.margin=0;
+            
+            
+            //canvas styling
+            canvas.style.width=window.innerWidth;
+            canvas.style.height=window.innerHeight;
+            canvas.style.backgroundColor='#000000';
+            
+            //forward button styling
+            forwardBtn.style.fontSize='1.75em';
+            forwardBtn.style.fontFamily='courier';
+            forwardBtn.style.margin='2em 0em';
+            
+            //reverse button styling
+            reverseBtn.style.fontSize='1.75em';
+            reverseBtn.style.fontFamily='courier';
+            reverseBtn.style.margin='2em 0em';
+            reverseBtn.style.position='absolute';
+            reverseBtn.style.right='0';
+            
+            
+            //button click function assignments
+            
+            //forward button click function assignment
+            forwardBtn.onclick=forwardF;
+            
+            
+            //reverse button click function assignment
+            reverseBtn.onclick=reverseF;
+            
+            
+            //canvas functionality and declarations 
+            
+            //context declaration
+            let cxt=canvas.getContext('2d');
+            
+            x=0;
+            y=50;
+            
+            
+            //forwardF functionality
+            function forwardF()
+            {
+                cxt.clearRect(0,0,canvas.width,canvas.height);
+                
+                cxt.beginPath()
+                cxt.rect(x,y,100,25);
+                cxt.fillStyle='#ffffff';
+                cxt.fill();
+                x++;
+                
+                if(x>=canvas.width)
+                {
+                    x=-100;
+                    x++;
+                }
+                
+                window.requestAnimationFrame(forwardF);
+            }
+            
+            //reverseF functionality
+            function reverseF()
+            {
+                
+                cxt.clearRect(0,0,canvas.width,canvas.height);
+                cxt.beginPath();
+                cxt.rect(x,y,100,25);
+                cxt.fillStyle='#ffffff';
+                cxt.fill();
+                
+                x--;
+                
+                if(x<=-100)
+                {
+                    x=canvas.width;
+                x--;
+                }
+                window.requestAnimationFrame(reverseF)
+            }
+
+            forwardF();
+            reverseF();
+            
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+	<head>
+		<meta charset='UTF-8'/>
+		<meta name='viewport'content='width=device-width,initial-scale=1.0'/>
+		<style>
+		@keyframes csAnime
+		{
+			0%{background-color:white;left:-33%;}
+		  100%{background-color:black;left:100%;}
+		}
+		@keyframes resAnime
+		{
+			0%{filter:hue-rotate(0deg);}
+		  100%{filter:hue-rotate(180deg)}
+		}
+		
+		@keyframes sateAnime
+		{
+		    0%{left:-35%;}
+		  100%{left:120%} 
+		}
+		
+		@keyframes sateShadAnime
+		{
+		    0%{left:-50%;opacity:0.75;}
+		  100%{left:110%;opacity:1;} 
+		}
+		
+		
+		
+		body{margin:0 auto;box-sizing:border-box;max-width:100%}
+	    div.earth{overflow:hidden;}
+		
+		.colorSelection{background-color:silver;padding:2em;margin:0 auto;border:none;width:100%;height:auto;font-family:courier;box-sizing:border-box;}
+		
+		
+		
+		.backgroundTheme{background-color:black;padding:0 auto;margin:0 auto;border:none;padding:2em;margin:0 auto;width:100%;height:100%;box-sizing:border-box;overflow:hidden;}
+		
+		
+		.earth{background-clip:padding-box;border:0.5em solid rgba(0,200,200,0.5);background-image:linear-gradient(teal,blue);border-radius:50%;width:15em;height:15em;position:relative;top:auto;left:auto;animation:resnime 6s linear infinite alternate 0s;}
+		::selection{background-color:rgba(0,0,0,0.5);color:white;}
+		
+		
+		.satelite{width:6em;height:6em;background-color:rgba(50,50,50,1);border-radius:50%;position:absolute;top:66%;left:50%;overflow:hidden;animation:sateAnime 10s 0s linear normal infinite}
+		
+		.satelight{width:5em;height:5em;background-color:white;border-radius:50%;position:absolute;top:0%;left:45%;filter:blur(25px);}
+		
+		.sateShadow{width:6em;height:6em;background-color:black;position:absolute;top:50%;left:50%;border-radius:50%;filter:blur(25px);animation:sateShadAnime 10s 0s normal linear infinite}
+		
+		
+		
+		
+		.africa1{width:3em;height:8em;border-radius:0em  5em 3em 1.25em;
+		background-color:#b58a59;position:absolute;top:36%;left:25%;}
+		.africa2{width:5em;height:4em;border-radius:2em;background-color:#b58a59;position:absolute;top:39%;left:6%;}
+		.africa3{width:2em;height:4em;border-radius:1.25em 3em 0em 0em;background-color:#b58a59;position:absolute;top:47%;left:36%;transform:rotate(45deg);}
+		.madscar{width:0.5em;height:1.5em;border-radius:2em;background-color:#b58a59;position:absolute;top:75%;left:50%;transform:rotate(10deg)}
+		.eurasia1{width:9em;height:5em;border-radius:3em 50em 25em 50em;background-color:#b58a59;position:absolute;top:15%;left:37%;}
+		.eurasia2{width:5em;height:3em;border-radius:1.25em;background-color:#b58a59;position:absolute;top:13%;left:20%;transform:rotate(-15deg)}
+		.eurasia3{width:5em;height:2em;border-radius:0em 3em 0em 1.25em;background-color:#b58a59;position:absolute;top:39%;left:55%;transform:rotate(-27deg)}
+		.japanese{width:0.5em;height:1.4em;border-radius:2em;background-color:#b48a59;position:absolute;top:42%;left:94%;transform:rotate(40deg)}
+		.japanes2{width:0.25em;height:1.0em;border-radius:2em;background-color:#b58a59;position:absolute;top:50%;left:90%;transform:rotate(0deg)}
+		.antarct1{width:2em;height:0.25em;background-color:silver;border-radius:50% 50% 50% 50%;position:absolute;top:98.5%;left:45%;transform:rotate(-1.25deg)}
+		.antarct2{width:2em;height:0.25em;background-color:white;border-radius:50% 50% 50% 50%;position:absolute;top:98.45%;left:40%;transform:rotate(2.5deg)}
+		.antarct3{width:1em;height:0.25em;background-color:white;border-radius:5% 5% 50% 5%;position:absolute;top:97.25%;left:36%;transform:rotate(18deg)}
+		.antarct4{width:3em;height:0.25em;background-color:white;border-radius:5% 5% 50% 50%;position:absolute;top:96.95%;left:52%;transform:rotate(-13deg)}
+		.antarct5{width:3em;height:0.5em;background-color:white;border-radius:5% 5% 50% 50%;position:absolute;top:96%;left:43%;transform:rotate(-9deg)}
+		.antarct6{width:0.5em;height:1em;background-color:white;border-radius:5% 5% 50% 50%;position:absolute;top:94%;left:43%;transform:rotate(90deg)}
+
+         .austral1{width:5em;height:2.50em;background-color:#b58a59;border-radius:1.5em;position:absolute;top:69%;left:75%;}
+
+		
+		
+		.vegafri1{width:2em;height:1.5em;background-color:#005e03;border-radius:2em;position:absolute;top:60%;left:25%;filter:blur(0px);opacity:0.75}
+		.vegafri2{width:2.0em;height:3em;background-color:#005e03;border-radius:2em;position:absolute;top:60%;left:25%;filter:blur(0px);opacity:0.75}
+		.vegafri3{width:1em;height:1.5em;background-color:#005e03;border-radius:2em;position:absolute;top:59%;left:27%;filter:blur(0px);opacity:0.75}
+		.vegafri4{width:2em;height:1em;background-color:#005e03;position:absolute;top:58.99%;left:18%;filter:blur(0px);border-radius:2em;opacity:0.75}
+		.vegafri5{width:1em;height:2em;background-color:#005e03;position:absolute;top:69%;left:25%;filter:blur(0px);border-radius:2em;opacity:0.75}
+		
+	
+		.sarafri1{width:5em;height:2.5em;background-color:#c7a077;border-radius:2em;position:absolute;top:40%;left:9%;opacity:1}
+		.sarafri2{width:2em;height:3em;background-color:#c7a077;border-radius:1.25em;position:absolute;top:47%;left:35%;transform:rotate(90deg);opacity:1;}
+
+         .clouds1{width:5em;height:2em;background-color:white;position:absolute;top:50%;left:50%;border-radius:2em;animation: csAnime 30s normal 0s infinite linear}
+
+
+		.lisphere{width:15em;height:25em;background-image:radial-gradient(circle,rgba(255,255,255,1),rgba(255,255,255,1));position:absolute;top:-30%;left:45%;border-radius:25%;opacity:0.5;filter:blur(25px);transform:rotate(-10deg)}
+		
+		.dasphere{width:18em;height:25em;background-image:radial-gradient(circle,rgba(0,0,0,1),rgba(0,0,0,1));position:absolute;top:0%;left:-45%;border-radius:50%;opacity:0.5;filter:blur(25px);}
+			
+		
+		</style>
+		<title>earth-project</title>
+	</head>
+	<body>
+		
+		<!--
+		
+		<div class='colorSelection'onclick='myF()'>
+			<label for='color'i>This section is for color selection to be used in the div below this section </label>
+			<br>
+			<br>
+			<br>
+			
+			<input type='color'id='color'name='colr'/>
+			<br>
+			<p style='font-size:1.5em;background-color:#005a7d;outline:none;color:#ffff00;display:inline-block;'id='display'contenteditable>colour value will display here</p>
+		</div>
+		-->
+		
+		<div class='backgroundTheme'>
+		
+			
+			<div class='earth'>
+				
+				<!--african continent-->
+				
+				<div class='africa1'></div>
+				<div class='africa2'></div>
+				<div class='africa3'></div>
+				<div class='madscar'></div>
+				
+				<!--eurasia continent-->
+				
+				<div class='eurasia1'></div>
+				<div class='eurasia2'></div>
+				<div class='eurasia3'></div>
+				<div class='japanese'></div>
+				<div class='japanes2'></div>
+				
+				<!--australia-->
+				<div class='austral1'></div>
+				
+				<!--antarctica-->
+				
+				<div class='antarct1'></div>
+				<div class='antarct2'></div>
+				<div class='antarct3'></div>
+				<div class='antarct4'></div>
+				<div class='antarct5'></div>
+				<div class='antarct6'></div>
+				
+				<!--vegetation patches(africa)-->
+				
+				<div class='vegafri1'></div>
+				<div class='vegafri2'></div>
+				<div class='vegafri3'></div>
+				<div class='vegafri4'></div>
+				<div class='vegafri5'></div>
+				
+				<!--sahara desert-->
+				<div class='sarafri1'></div>
+				<div class='sarafri2'></div>
+				
+				<!--clouds-->
+				
+				<div class='clouds1'></div>
+				
+				<div class='lisphere'></div>
+				<div class='dasphere'></div>
+				
+				
+				<div class='sateShadow'></div>
+
+
+			</div>
+			
+			
+			<div class='satelite'>
+				<div class='satelight'></div>
+			</div>
+			
+			
+		</div>
+		
+		<script>
+			/*
+			function myF()
+			{
+				let color=document.getElementById('color');
+				let colr=color.value;
+				let disp=document.getElementById('display');
+				disp.innerHTML=colr;
+	}
+	setInterval('myF()',0);
+	*/
+		</script>
+	</body>
+</html>
