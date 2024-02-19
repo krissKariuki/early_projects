@@ -1,2 +1,3 @@
-# kristopher
-first absolute website by kristopher
+#description
+these projects are among THE very first for which I practised my programming skills in web development.
+
